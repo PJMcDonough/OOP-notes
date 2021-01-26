@@ -3,6 +3,8 @@ I'm Patrick McDonough. I'm your embedded peer tutor for Object Oriented Programm
 
 My Hours will be determined based on [this survey](https://docs.google.com/forms/d/e/1FAIpQLSfD3ab9-dtkCexlZE7duXABn99N0D4Jx1O9bOWkHQxQIswWKA/viewform?usp=sf_link).
 
+![Me!](me.jpg)
+
 A little about me [adapted from](https://cilearn.csuci.edu/courses/16292/pages/meet-your-instructor?module_item_id=757363):
 - I got my HS diploma from the High School at Moorpark College. I'm
   working on a BS in Mathematics and Computer Science here at CSUCI.
