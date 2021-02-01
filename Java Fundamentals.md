@@ -100,6 +100,7 @@ After the above code, y is still `0` even though x has been changed to `1`.
 
 ## The types
 |name |bits|range                                      |
+|---- |----|-------------------------------------------|
 |byte |8   |[-128, 127]                                |
 |short|16  |[-32768, 32767]                            |
 |int  |32  |[-2147483648, 2147483647]                  |
