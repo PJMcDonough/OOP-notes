@@ -106,14 +106,101 @@ After the above code, y is still `0` even though x has been changed to `1`.
 |int  |32  |[-2147483648, 2147483647]                  |
 |long |64  |[-9223372036854775808, 9223372036854775807]|
 
-We also have two types, `float` and `double`, which approximate real numbers. They are the binary equivalent of scientific notation. The type `float` is smaller (32 bits compared to 64 bits for `double`), but `double` gives us a better approximation.
+We also have two types, `float` and `double`, which approximate real
+numbers. They are the binary equivalent of scientific notation. The
+type `float` is smaller (32 bits compared to 64 bits for `double`),
+but `double` gives us a better approximation.
 
-To write a `long` literal, use the suffix L. Take for example 9223372036854775807L.
+To write a `long` literal, use the suffix L. Take for example
+9223372036854775807L.
 
 ## Behavior
-When we try to store a number that is to large in an integral type, the value wraps around.
+When we try to store a number that is to large in an integral type,
+the value wraps around.
 ```java
 byte x = 127;
 x++;//x bcomes -128
 ```
-# To be Continued ...
+
+# Day 2
+Floating point numbers come in two types. The larger type `double` is
+the default floating point type. The smaller type, `float` requires a
+suffix on literals. The literal `0.5` is a double, while `0.5F` is a
+float.
+
+Character literals approximate the idea of a character. They are
+notated surrounded with single quotes (`'a'`, `'$'`). We also have
+escape characters like `'\n'` for newlines, `'\t'` for tabs, and
+`'\r'` to make you life worse.
+
+The `bool` datatype (from the word Boolean), has two types `true` and
+`false`.
+
+Strings can contain multiple `char`s. We use double quotes (`"Quick"`,
+`"Rápido"`). Strings are not primitives, they are objects, but there
+some corner cases.
+
+## Arithmetic operations
+We have `+ - * / %`. The `%` operator gives a remainder and is also
+called the modulus operator. These operators follow the order of
+operations (like PEMDAS). Multiplication, division, and modulus have
+the same precedence for order of operations. Addition and subtraction
+are done left to right as a group
+
+We also have `+= -= *= /= %=`. The statement `x+=5` is equivalent to
+`x = x+5`. The other shortcut operators work similarly. There are four
+more shortcuts. The expressions `x++`, and `++x` work like `x+=1`,
+except that `x++` evaluates to the old value of `x` and `++x`
+evaluates to the new value of x. We, analogously have `x--` and `--x`
+for `x-=1`.
+
+## Casting
+Consider the following working snippet
+```java
+int x = 5;
+byte y = x;
+```
+The following does not work.
+```java
+int x = 5;
+byte y = x;
+```
+We must cast
+```java
+int x = 5;
+byte y = (byte) x; 
+```
+We can get wraparound for some values of x,
+```java
+int x = 128;
+byte y = (int) x; 
+```
+This applies whenever we go from one type to a type that cannot hold
+all the values of the first type. We call this a lossy
+conversion. Casts are not, however needed when going from integral
+types to floating point types.
+
+Casting from floating point types truncates. We have `(int)4.99 == 4`
+and`(int)-4.99 == -4`
+## Polymorphism
+The `+` operator does different things for different types. In other
+words, it's polymorphic. We've seen several different forms of
+arithmetic addition, and string concatenation. `"Crème" + " " +
+"brûlée"` gives us `"Crème brûlée"`. Note that `+` is always left to
+right. `1+1+"nd Day` gives us `"2nd Day"`, but `"Day " + 1+1` gives us
+`"Day 11"`.
+
+Division. Dividing integers gives integers, but if either argument is
+a floating point type, then the result is a floating point type. This
+means `(double)(6/5) == 1.0`, to get an accurate answer, we must use
+`(double)6/5` which is equivalent to `((double)6)/5`.
+
+## Floating Point Rounding errors
+Floating point math, in general, only gives an approximately correct
+value. For this reason, we don't use `==` with floating point values
+in most cases.
+## The Math Class
+Googling for documentation is a good idea. Try it.
+## The `.` operator
+This works somewhat like `/` in URLs. It allows us to access members
+of classes and packages.
