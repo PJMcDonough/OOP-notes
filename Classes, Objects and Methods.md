@@ -68,3 +68,51 @@ These are still technically not functions. Functions don't live in
 classes. There are no functions in Java, only methods. People will say
 the wrong thing. The two words are sort of interchangeable even though
 there is technically a difference.
+
+# `File`s
+To open a file, and read from it use the following code.
+```java
+public static void main(String[] args) throws java.io.FileNotFoundException{
+
+	File inputFile = new File("path/to/the file");
+	Scanner inputFileScanner = new Scanner(inputFile);
+}
+```
+
+This is to say that Scanners can work with files specified by paths,
+not just the standard input.
+
+# `while` loops
+The `while` loop will evaluate the condition, and if it's true, run
+the code. It will keep doing this until it becomes false.
+```java
+//Print inputfile with each word on a new line
+while(inputFileScanner.hasNext(){
+	System.out.println(inputFileScanner.next());
+}
+```
+
+# References vs primitives
+See Ryan's Readmes for examples and a more intuitive, but equivalent
+explanation. One way of thinking about how things are passed in java
+is as follows. Assignment always makes a copy of the variable on the
+right-hand-side, and other operations also make copies for their
+use. The only tricky thing about this is that, except for primitive
+types, the value stored in the variable is just an address. Ryan's
+description of an address is delightful. It's a treasure map to
+whatever type we have put there.
+
+Note that the `==` operator checks references for equality by
+comparing where the data is stored. To compare the contents of the
+data, we must use the `.equals` method.
+
+# Debugging
+Debuggers allow us to step through code. A breakpoint is a point at
+which the debugger will stop. These can be inserted manually. The
+"step over" button allows us to go line by line. When a line is
+highlighted by the debugger, that means it is about to be run. We can
+look at variables when we are debugging. We can also use "step into"
+and "step out" to see what happens in a function, and to run until we
+return from a function respectively. The "resume program" will keep
+running until it hits another breakpoint. If you run into an infinite
+loop, the "pause" feature of the debugger may be helpful.
