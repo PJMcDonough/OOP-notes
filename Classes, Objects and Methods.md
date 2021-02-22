@@ -116,3 +116,59 @@ and "step out" to see what happens in a function, and to run until we
 return from a function respectively. The "resume program" will keep
 running until it hits another breakpoint. If you run into an infinite
 loop, the "pause" feature of the debugger may be helpful.
+
+# Tasks
+## Task 6 Birthday v1 Date
+We looked at [the documentation for SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html). Date gives both date and time. Note that the no-arg Date constructor Gives us the Date for now, i.e., on Feb 22, 2021 at 10:00am, it will give us that time. We use the SimpleDateFormat.parse() to do most of the work.
+
+We do `hours=min/60; minuets%=60` and similar conversions. This gives
+us the number of whole hours, and excess minuets when given minuets.
+## Task 6 Birthday v2 LocalDateTime and Duration
+Here we use `java.time.LocalDateTime` and java.time.Duration. We can
+use any of the methods called `of` in `LocalDateTime.` These are
+pseudo-constructors. We can get `Duration` using
+`Duration.between`.
+## Task 8v1
+We will find a desired Fibonacci numbers. This is the function 
+
+| n    | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7  | 8  |
+|------|---|---|---|---|---|---|---|----|----|
+| f(n) | 0 | 1 | 1 | 2 | 3 | 5 | 8 | 13 | 21 |
+
+We will do this the *bad* recursive way.
+```java
+public static int fib(n){
+	if(n<2){
+		//base case
+		return n;
+	}
+	//recursive case
+	return fib(n-1)+fib(n-2);
+}
+```
+## Task 8v2
+We can rewrite this in a way that is *not completely terrible*. 
+```java
+public static int fib(n){
+	if(n<2){
+		//base case which we don't actually need
+		return n;
+	}
+	int a = 0;
+	int b = 1;
+	int i = 1;
+	while (i<n){
+		int t =b;
+		b+=a;
+		a = t;
+		i++;
+	}
+	return b;
+}
+```
+
+Side bar: If you have taken Discrete math, you may recognize this as a
+difference equation we can solve. The closed-form version of this is
+beyond the scope of this class.
+## Why did we write these?
+Writing functions allows us to make our code DRY.
