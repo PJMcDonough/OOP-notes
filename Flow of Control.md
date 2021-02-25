@@ -11,6 +11,7 @@ Note though, that these Cannon be chained `0<1<2` is a compile-time error.
 | !=   | ≠    |
 | >=   | ≤    |
 | >    | >    |
+
 The `!` in `!=` is meant to be reminiscent of `!(a==b)`.
 This is because `!` is the negation operator. 
 The expressions`!false` and `!true` are `true` and `false` respectively.
