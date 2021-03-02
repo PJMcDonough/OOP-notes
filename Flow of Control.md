@@ -178,3 +178,15 @@ class DateUtils
 ```
 The most common use of a missing `break` is an empty block.
 This works somewhat an or.
+
+# Strings
+Strings can be indexed into.
+We count from `0` because we a programmers.
+There are good reasons for this, but their beyond the scope of this lecture.
+For example `"Sunday".charAt(0)` is `'S'`, `"Sunday".charAt(1)` is `'u'`, and `"Sunday".charAt(5)` is `'y'`.
+We will get a `StringIndexOutOfBoundsException` if we pass a negative value, or one that is passed the end to `charAt`.
+`String.length()` gives us the length of the string which is one more than the max index.
+We can loop of characters using `for(int i=0;i<myString.length())` allows us to loop over the indices of `myString`.
+The substring method allows us to specify a starting index and optionally an exclusive ending index.
+For example, `"Sunday".substring(0,1)` is `"S"`, `"Sunday".substring(1,3)` is `"un"`, and `"Sunday".substring(3)` is `"day"`.
+We can also get a `StringIndexOutOfBoundsException` using `String.substring`.
