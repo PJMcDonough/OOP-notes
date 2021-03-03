@@ -190,3 +190,68 @@ We can loop of characters using `for(int i=0;i<myString.length())` allows us to 
 The substring method allows us to specify a starting index and optionally an exclusive ending index.
 For example, `"Sunday".substring(0,1)` is `"S"`, `"Sunday".substring(1,3)` is `"un"`, and `"Sunday".substring(3)` is `"day"`.
 We can also get a `StringIndexOutOfBoundsException` using `String.substring`.
+
+# Task 5
+We will print out a diamond of stars.
+Ryan demonstrated the following method.
+Here I describe the functioning of the final project not the development process.
+In a method called `repeatPrint` We use a for loop to print a given string a given number of times.
+We need a method to print a row, which we call `printDaimondRow`, which simply calls `repeatPrint` twice.
+It takes the number of spaces we want to print, as well as the number of asterisks.
+In `printDaimond`, We can then call `printDaimondRow` in a `for` loop.
+We use some dirty math tricks to avoid having to use a second loop (making it DRYer).
+
+The trick is as follows. We could also count from `-width` to `width`, and that might be simpler.
+```java
+int width * 2;
+for(int row=1; row < doubleWidth; row++){
+	nSpaces = Math.abs(width-row);
+	printDaimondRow(Math.abs(width-row), nSpaces);
+}
+```
+By making our code DRYer, we have made it easier to read.
+By using small methods, we have removed the need for comments, and made the methods easy to read or debug.
+
+# Task 6
+**Cloud9 Note**: On cloud 9, when you hit run, the working directory is the directory the `.java` file is in.
+This is also the directory the `.class` file is in.
+
+**`Scanner` and `File` Note**: `Scanner`'s constructor throws the `FileNotFoundException`.
+`File`'s does not.
+
+We will read a file containing a bunch of integers. 
+We will do no validation, except we detect an empty file.
+We will compute the minimum, maximum, sum, and average.
+
+One method for initializing the values is as follows.
+We initialize the max and min to `Integer.MIN_VALUE` and `Integer.MAX_VALUE`.
+This works because these are the respective identity elements of the `Math.max` and `Math.min` operations.
+We initialize `sum` and count to zero.
+
+Alternatively, we can do something called a "prime read".
+In this context prime means something like first.
+We can initialize everything but count to the first element.
+Count must then be set to 1.
+
+As we loop over the values, we perform the respective updates on each value. 
+The average can then be computed as the real-valued quotient of sum and count.
+This can be suitably approximated by casting to double and dividing.
+
+# Task 9
+We can write a primality test for the integer `n`.
+We check if n is 1, which is not prime.
+We then check for 2, which is prime;
+Then we loop through all the numbers `i` less than `(int)math.sqrt(n)`.
+For each `i`, we check `n%i == 0`.
+In that case we return `false`.
+Once the loop terminates, we return `true`.
+
+# Task 10
+**Variable declaration Note**: 
+We can declare (and optionally initialize) multiple variables of the same type in a single declaration.
+`int nPrimesFound = 0, factor = 2`.
+This, of course, works in for loops.
+
+We will loop through all the integers >2 until we find all the primes we want.
+We can use our primality test from our `PrimeUtils` class.
+
