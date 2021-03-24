@@ -1,8 +1,3 @@
-# Javadoc
-We use a special form of comment starting with `/**`. 
-Javadoc is then extracted from the source code.
-We usually just look at the comments in the source code, but it's the same stuff.
-You have Seen Javadoc on Oracle's website.
 # Arrays
 Arrays allow us to have multiple things in one variable.
 For a type `T`, we can declare an array of `T`s named `var` like `T[] var`.
@@ -132,6 +127,11 @@ int[][] numbers = {
 ```
 To iterate over the numbers, we would need to either use an enhanced for loop (`for(int [] row : numbers)`) or manually check the length of each array.
 # Misc
+## Javadoc
+We use a special form of comment starting with `/**`. 
+Javadoc is then extracted from the source code.
+We usually just look at the comments in the source code, but it's the same stuff.
+You have Seen Javadoc on Oracle's website.
 ## Swap
 To swap two things of type `T` (for example variables or places in arrays), we do the following.
 ```java
@@ -180,7 +180,7 @@ This will read a file into a string, but will eat the newline at the end of the 
 String content = new Scanner(new File("filename")).useDelimiter("\\Z").next();
 ```
 The regular expression `"\\Z"` will look for the end of the file.
-Instead of `"\\Z"`, we might be able to use the magic string "\u001A".
+Instead of `"\\Z"`, we might be able to use the magic string `"\u001A"`.
 
 # `ArrayList`
 For any type `T`, we can make a `ArrayList<T>` which is like a `T[]`, but where *the size is not fixed*.
