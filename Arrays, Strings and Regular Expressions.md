@@ -85,6 +85,52 @@ Note that `rv` stands for "**r**eturn **v**alue".
 Changing the indicated lines above can make the code compute the
 minimum, or the maximum, or the average, but we normally compute the
 average by first calculating the sum and then dividing.
+## Selection Sort
+Selection sort works as follows.
+Start `i` at `0`.
+Swap the element at `i` with the smallest element at or before `i`.
+Continue with this, incriminating `i` until we get to the end of the array.
+This winds up being a nested loop.
+As an optimization we don't need to go all the way to the last element, because all 1-element sequences are sorted.
+Ryan's Psudo-code is provided here:
+```
+IN: Array A has n numbers 0 to n-1
+for i from 0 to n-2
+	min = i
+	for j from j+1 to n-1
+		if A[j]<A[min]
+			min = j
+	swap A[i] and A[min]
+```
+Note that psudo-code is meant for people to read exclusively.
+A computer cannot read it.
+The indentation has the same meaning as in Python i.e., an increase in indentation corresponds to a Java `{` and a decrease corresponds to a Java `}`.
+## Multi-Dimensional Arrays
+Arrays can nest, i.e., we can have arrays of arrays.
+We call these Multi-Dimensional arrays.
+Indexing follows the same rules, but the consequences are non-obvious.
+In a two dimensional array `m`, the expression `m[i][j]` gives us element `j` sub-array (row) `i`.
+In general, we go from less to more specific.
+The reason that the preceding expression works is that `m[i]` gives us row `i`, which is simply a 1 dimensional array.
+We can initialize multi-dimensional arrays of `T` as follows `new T[ROWS][COLS]`. 
+In the case of a multiplication table, consider the following code.
+```java
+int[][] timesTable = new int[10][11];
+for(int row=0; row < timesTable.length; row++)
+	for(int col = 0; col < timesTable[0].length; col++)
+		timesTable[row][col] = row*col;
+```
+Multi-dimensional arrays can be non-rectangular.
+The following is valid.
+```java
+int[][] numbers = {
+	{1,2,3},
+	{4},
+	{},
+	{5 0}
+};
+```
+To iterate over the numbers, we would need to either use an enhanced for loop (`for(int [] row : numbers)`) or manually check the length of each array.
 # Misc
 ## Swap
 To swap two things of type `T` (for example variables or places in arrays), we do the following.
@@ -107,3 +153,38 @@ public static int max(int inputArray){
 	return max(inputArray, 0, inputArray.length);
 }
 ```
+# More Strings
+Consider the following code which only works for first/middle/last, and not for 2 or 4 names.
+```java
+String eptName = "Patrick James McDonough";
+int firstSpaceIndex = eptName.indexOf(' ');
+int lastSpaceIndex  = eptName.lastIndexOf(' ');
+String firstName = eptName.substring(0, firstSpaceIndex);
+String middleName = eptName.substring(firstSpaceIndex+1, lastSpaceIndex);
+String lastName = ept.substring(lastSpaceIndex+1)
+
+```
+We can use a loop to get the space separated components of a name. See [Exercise 14](https://github.com/arewhyaeenn/OOP_ARRAYS_STRINGS_REGEX#q14).
+The general idea here is that pass a start index as a second parameter to `indexOf`.
+When `indexOf` does not find the requested character, it returns `-1`.
+## Escape Sequences
+We have already talked about the newline character `'\n'`, the tab character `'\t'`, and the carriage return character `'\r'` which will overwrite the line.
+If we want to include a `"` character in a string we need to write `\"` instead.
+Take for example `"She said \"Hello\"".`. 
+This represents the text `She said "Hello".`
+Similarly if we want to include a backslash in our string we actually need to write two of them.
+Take for example `"C:\\Users\\Patrick"`.
+## Regular Expressions
+This will read a file into a string, but will eat the newline at the end of the file.
+```java
+String content = new Scanner(new File("filename")).useDelimiter("\\Z").next();
+```
+The regular expression `"\\Z"` will look for the end of the file.
+Instead of `"\\Z"`, we might be able to use the magic string "\u001A".
+
+# `ArrayList`
+For any type `T`, we can make a `ArrayList<T>` which is like a `T[]`, but where *the size is not fixed*.
+We can add elements to the end of the `ArrayList` `m` using `m.add(whatever)`.
+To get the number of elements in an `ArrayList`, we can use `.size()`.
+Instead of using `[index]` we use `.get(index)`.
+Enhanced for loops also work for `ArrayList`.
