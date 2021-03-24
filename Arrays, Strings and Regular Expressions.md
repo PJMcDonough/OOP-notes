@@ -35,6 +35,18 @@ We can write:
 for(String month:months);
 for(int index:indices;
 ```
+## Varargs
+Consider a method with the signature
+```java
+static int sum(int... numbers)
+```
+Inside the method, `numbers` is simply a `int[]`. See comments below
+```java
+x = sum(someArray);  //OK
+y = sum(1,2,3,4);    //OK
+z = sum(someArray,4) //ERROR
+z = sum(4,someArray) //ERROR
+```
 ## Array Equality
 To check arrays for equality, we check if their lengths are the same, and then check for equality at each index.
 This is not what `==` does; `==` checks to see if the arrays actually refer to the same place in memory.
