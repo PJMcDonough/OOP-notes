@@ -1,7 +1,8 @@
 # Posted Lectures
 *You should view the posted video lectures and read the README.*
-# Reminder
-Variables, methods, classes and should have meaningful names.
+# Reminders
+1. Variables, methods, classes and should have meaningful names.
+2. DRY code is good
 # Up to and including Task 2
 If a variable is declared in class scope and does not bear the `static` modifier, one exists for each instance of the class.
 If a method does not bear a `static` modifier, then each call to the method is associated with an instance, which must precede the method with a `.`. 
@@ -29,4 +30,14 @@ This will provide the string in the crash at runtime.
 
 `Fraction` is immutable, meaning we don't modify instances once we create them.
 This may seem useless, but we can return instances of a class from methods of that class.
-We do this for the `.negate` and `.reciprical` methods.
+We do this for the `multiply`, `.divide`, `.add`, `.subtract`, `.negate` and `.reciprocal` methods.
+We implement `.subtract` in terms of `.add` and `.negate`, and `.divide` in terms of `.multiply` and `.reciprocal`.
+This makes our code DRYer, and DRY code is good.
+
+We can do method overloading with both `static` and non`static` methods, but we can call `static` methods from instances.
+This means that we need to have different in-source argument lists (i.e. neglecting `this`).
+
+Ryan implemented much of`FractionCalculator` in lecture, but you should modify it to also test `.equals`.
+Also take a look at the rigorous testing he does for other methods.
+You don't need to test the getters.
+They are too simple to need tests.
