@@ -41,3 +41,58 @@ Ryan implemented much of`FractionCalculator` in lecture, but you should modify i
 Also take a look at the rigorous testing he does for other methods.
 You don't need to test the getters.
 They are too simple to need tests.
+
+# Task 5: Triangles
+We can use the keyword `final` to prevent a variable from changing.
+We used `private final` to declare the array `sides`.
+This prevents us from reassigning `sides`, but does not prevent us from mutating the elements behind the pointer.
+In fact, we *do* mutate behind the pointer; we sort the `sides`.
+We don't return `sides` because that would allow the client to mutate them; instead we make a copy.
+We also have several accessors that do computation.
+
+Since we sorted the sides, we can use that in the `equals` method. 
+We can also access anything in the other argument because the `Triangle` class has free reign over all `Triangles`, not just `this`.
+
+When we write the `toString` method, we are overriding the corresponding method of `Object`.
+IntelliJ indicates this.
+If we hadn't done this, then `Triangle` would use the `toString` method in `Object`.
+It is customary to indicate that you are overriding a method using the `@Override` syntax.
+This is useful for documentation and makes clear you actually intended to override the method.
+
+We can use the `instanceof` operator to see if something is, in fact, e.g, a `Triangle`. 
+We wrote, in effect, `otherObject instanceof Triangle` to determine whether `otherObject` was a `Triangle`.
+
+**NB**: We decide to allow triangles with 0 area provided the sides actually line up. 
+
+## Exceptions
+We wrote an exception class: `InvalidTriangleException`.
+```java
+public class InvalidTriangleException extends RuntimeException{
+	public InvalidTriangleException(double[] sides){
+		super("sides are:"
+			+ sides[0] +","
+			+ sides[0] +", and"
+			+ sides[0] 
+			)
+	}
+}
+
+```
+
+Exceptions would not be all that useful if they always resulted in the program crashing.
+For that reason, java has two keywords to help us with this.
+The `try` keyword indicates a block of code which may throw an exception we want to handle.
+The `catch` keyword indicates a block of code which handles some type of exception, and what kind of exceptions it can handle.
+We can have multiple different `catch` blocks (as shown below).
+
+```java
+try{
+	doStuff()
+}catch (ExceptionType1 e){
+	handleExceptionType1(e);
+}catch (ExceptionType2 e){
+	handleExceptionType2(e);
+}catch (Exception e){
+	e.printStackTrace(); // but we still don't crash!
+}
+```
