@@ -96,3 +96,66 @@ try{
 	e.printStackTrace(); // but we still don't crash!
 }
 ```
+# Task 6: Linked Lists
+Linked lists are like arrays.
+They allow us to have more than one of something in a given variable.
+
+A linked list is composed of links.
+Each link has data and a pointer to the next link in the list.
+In addition to the `Link` class, which will have a `head`, and `tail` pointer.
+The `head` pointer points to the first item, and `tail` to the last.
+We are making a singly linked list of `int`s.
+A doubly linked list also has links in the opposite direction.
+
+CSUCI's Java style generally follows the principle that we should not usually directly access instance variables.
+Instead, it uses getters and setters heavily.
+The rationale for this is encapsulation; this makes it easier to add validation, or change the way data is stored.
+
+Constructors can call each other.
+The syntax for this is `this(args)` for any list of arguments `args`.
+We use this as `this(DEFAULT_VALUE)` in `LinkedListNode`.
+
+We maintain some invariants in `LinkedList`. 
+The field `this.length` is always correct, and the fields `this.head` and `this.tail` point to the first and last elements respectively if they exist, else null.
+This implies that if and only if the list is one item long `this.head == this.tail`.
+
+We can append to an empty `LinkedList` by setting the head and tail pointers to the new element `Link`.
+For a non-empty `LinkedList`, instead of setting the head pointer, we set the next pointer in the old `tail` `Link`.
+It is very important that we do these in the right order. 
+After this, we must update the length.
+
+In order to prepend (i.e. insert at the beginning of the list), we set our new node's next to the head, and then head to our new node.
+If the list was empty, we must also set the tail pointer.
+
+We can iterate over the items of a linked list by looking at the `next` field of each node. We can append to a `LinkedList`. 
+We stop when we get to a `null`.
+This is also how we get an element at a specified index.
+On indexing, however, we would like to throw and `IndexOutOfBounds` exception whenever we have a negative index or one that is greater than or equal to length.
+For `toArray`, we must first allocate an `int[length()]`, and while we iterate, we keep track of how far we are into the array.
+
+For the method `popLeft`, we want to remove the `head` node and return it's data. 
+For an empty `List`, we can simply return `null` to indicate that there is no data left.
+For a non-empty list, we set `head` to the next value of the current `head`, and if the list becomes empty, we `null` `tail`.
+
+For `popAtIndex`, we can abstract out the logic of `getNodeAtIndex` into a new method.
+If the index passed in is `length`, we need to notice that this is an invalid index, and throw an `IndexOutOfBoundsException`. 
+We must do the same if we have a `length` of zero because `popLeft` returns `null` when we want an exception.
+We've already written the special case for popping `head` in `popLeft`. 
+We can just call that.
+Otherwise we need to find the node before the one we want to pop.
+The node before the one we want to pop must have its `next` modified to point to the whatever the node we pop's `next` points to.
+If we are returning `tail`, we must set it to the new tail (i.e. the node before the one we popped).
+Here we use the `==` operator rather than the `.equals` method because we don't want to compare innards.
+We are actually just comparing whether they are literally the same object.
+
+Now we consider `insertAtIndex`
+Note that prepend is the `0` case, and append is the `length` case.
+If we don't fall into either of these cases, we want to insert between two nodes, or we have an invalid index.
+We can use `prev = getNodeAtIndex(index-1)`.
+After this we set the `next`s.
+It is important that we set `newNode`'s first.
+We finally increment size.
+
+Instead of initializing instance variables in constructors, we can initialize them at the declaration site.
+If we don't initialize at the constructor site, they are initialized to default values.
+This is `0` for numeric types, `'\0'` for characters, and `null` for objects.
