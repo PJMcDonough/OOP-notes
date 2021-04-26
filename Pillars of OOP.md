@@ -1,10 +1,10 @@
-The four pillars of OOP are: 
+The four pillars of OOP are:
 - Abstraction
 - Polymorphism
 - Inheritance
 - Abstraction
 They are all related, and mix together.
-All of these things together can allow us to build hierarchies of behavior without 
+All of these things together can allow us to build hierarchies of behavior without
 # Polymorphism
 We have covered the polymorphism of the `+` operator (`String`s vs `int`s).
 That's the definition.
@@ -12,7 +12,7 @@ Function overloading is also seen as a form of polymorphism in the OOP paradigm.
 # Inheritance
 We have covered how some of this works.
 # Encapsulation
-Encapsulation allows us to keep separate concerns separate. 
+Encapsulation allows us to keep separate concerns separate.
 That's the definition.
 Abstractions like `interface`s can make things better encapsulated.
 # Abstraction
@@ -49,7 +49,7 @@ We using a variable of type `Polygon`, we can only use methods declared in `inte
 Notably, we cannot use methods that only exist on `Rectangle`.
 
 ## Using multiple `interface`s
-In `interface`s, the `A extends B` , means that any `class` that implements `A` implements `B`. 
+In `interface`s, the `A extends B` , means that any `class` that implements `A` implements `B`.
 Note that this is transitive.
 We may want to have an `interface Person`, `interface Faculty extends Person`, and `interface Student extends Person`.
 If they both have a method `getInstitution`, then we probably want to create a new `interface Academic extends Person`, and have `Student` and `Faculty` extend `Academic` rather than `Person`.
