@@ -7,16 +7,23 @@ The four pillars of OOP are:
 They are all related, and mix together.
 All of these things together can allow us to build hierarchies of behavior without repeating ourselves.
 # Polymorphism
+This comes from the Greek for "many shapes".
 We have covered the polymorphism of the `+` operator (`String`s vs `int`s).
-That's the definition.
 Function overloading is also seen as a form of polymorphism in the OOP paradigm.
+Polymorphism lets us deal with multiple different things similarly.
+Take for example the Cartesian and polar implementations of `Point`.
 # Inheritance
-We have covered how some of this works.
+We have covered how some of this works to some extent and will cover it further in the future.
+Note that various implementations inherit the abstractions provided in `Polygon` and `Point`.
 # Encapsulation
 Encapsulation allows us to keep separate concerns separate.
 That's the definition.
 Abstractions like `interface`s can make things better encapsulated.
+`Point` and `Polygon` define how the client can interact with variables of those types.
+We encapsulate the implementation.
 # Abstraction
+The `Point` and `Polygon` `interface`s give us nice abstractions.
+The Cartesian and polar implementations of Point, and classes like`Rectangle` provide the implementation.
 ## Declaring and implementing `interface`s
 In java `interface`s are like classes.
 
