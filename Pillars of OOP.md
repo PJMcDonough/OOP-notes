@@ -3,6 +3,7 @@ The four pillars of OOP are:
 - Polymorphism
 - Inheritance
 - Abstraction
+
 They are all related, and mix together.
 All of these things together can allow us to build hierarchies of behavior without repeating ourselves.
 # Polymorphism
@@ -78,5 +79,5 @@ This section is rather terse, see the lecture or links.
 Important lessons are listed throughout this document
 We will be using points in Cartesian and [polar form](https://mathworld.wolfram.com/PolarCoordinates.html).
 Keep in mind that we are using radians and the java method [atan2(y,x)](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#atan2-double-double-).
-If used the normal [atan(theta)](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#atan-double-), we would sometimes get a result in the first quadrant when we wanted one in the third.
-Ryan also explained this well in class.
+If we used the normal [atan(theta)](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#atan-double-), we would get a result in the first quadrant whenever we wanted one in the third.
+Note that the getters and setters here are nontrivial; we perform a change of coordinate systems in them.
