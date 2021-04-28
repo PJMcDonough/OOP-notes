@@ -20,3 +20,10 @@ A little about me [adapted from](https://cilearn.csuci.edu/courses/16292/pages/m
 	>offended if I forget your name! I'll remember your shining face
 	>and our discussions (and I'll remember them better if you turn
 	>your camera on, but no pressure shy people).
+
+This is work may be derivative of [Ryan's READMEs](https://github.com/arewhyaeenn/INTRO_JAVA_OOP).
+It is CC-BY-NC 4.0 licensed.
+I recived permission of my employer to do this.
+This document uses the terminology of the course, which is based on common practice, and ease of understanding.
+This terminology may conflict with other useages, including sources by Oracle.
+All views and errors are my own.
