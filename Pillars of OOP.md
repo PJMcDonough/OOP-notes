@@ -4,7 +4,7 @@ The four pillars of OOP are:
 - Inheritance
 - Abstraction
 They are all related, and mix together.
-All of these things together can allow us to build hierarchies of behavior without
+All of these things together can allow us to build hierarchies of behavior without repeating ourselves.
 # Polymorphism
 We have covered the polymorphism of the `+` operator (`String`s vs `int`s).
 That's the definition.
@@ -70,3 +70,13 @@ TA t1 = (TA) p2;
 Student s1 = t1;
 ```
 I've only included casts where necessary.
+
+# Task 5
+The starter code is [here](https://github.com/arewhyaeenn/OOP_PILLARS_1/blob/master/point.zip).
+Please read comments as you modify it.
+This section is rather terse, see the lecture or links.
+Important lessons are listed throughout this document
+We will be using points in Cartesian and [polar form](https://mathworld.wolfram.com/PolarCoordinates.html).
+Keep in mind that we are using radians and the java method [atan2(y,x)](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#atan2-double-double-).
+If used the normal [atan(theta)](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#atan-double-), we would sometimes get a result in the first quadrant when we wanted one in the third.
+Ryan also explained this well in class.
