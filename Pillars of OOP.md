@@ -64,7 +64,7 @@ Each fish has a list of `Fin`s.
 `JellyFish` has no `Fin`s so that list is empty.
 Sharks do have `Fin`s, so that list is non-empty.
 
-!(See above prose)[AnimalDiagram.png "Summary of the Silly Animal Kingdom"]
+![See above prose](AnimalDiagram.png "Summary of the Silly Animal Kingdom")
 
 # Encapsulation
 Encapsulation allows us to keep separate concerns separate.
