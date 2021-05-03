@@ -13,8 +13,59 @@ Function overloading is also seen as a form of polymorphism in the OOP paradigm.
 Polymorphism lets us deal with multiple different things similarly.
 Take for example the Cartesian and polar implementations of `Point`.
 # Inheritance
+The general idea of inheritance is that we use some behavior of another class, while adding some of our own.
+
 We have covered how some of this works to some extent and will cover it further in the future.
 Note that various implementations inherit the abstractions provided in `Polygon` and `Point`.
+
+When we write something like `class MyClass`, this means `class MyClass extneds Object`.
+This allows us to using things like `.toString` from `Object`.
+
+In the above example, `MyClass` is a subclass of `Object`.
+Equivalently we can say that `Object` is its superclass.
+
+The keyword `super` refers to the superclass.
+We can use it to call a constructor defined in `super`.
+If another constructor of `super` is not called, then `super()` will be called implicitly in the constructor.
+We can also use it to call the methods we override.
+
+When no constructors are specified, Java adds the "default constructor".
+This isn't really inheritance, but it is similar in principle.
+
+Inheritance makes the `protected` access modifier actually useful.
+Protected allows subclasses but not clients to see given instance variables.
+Other classes in the package can also access these instance variables.
+
+Sources disagree on whether composition is inheritance.
+
+## `abstract class`es
+Abstract classes somewhere between concrete `class`es and `interfaces`.
+We can put the common data and behavior of multiple `class`es in an `abstract class`.
+We cannot directly instantiate `abstract class`es, but in exchange for this, we can define `abstract` methods.
+Like with concrete implementors of an `interface`, concrete subclasses of an `abstract class`must implement all the `abstract` methods of the abstract class.
+
+One interesting difference between an `interface` and an `abstract class` is that, by overriding a method with an abstract method, an abstract class can force its concrete subclasses to override methods (e.g. `.toString`).
+
+An `abstract class` can be subclasses of another `abstract class`, in which case, it does not need to implement its superclass's abstract methods.
+
+In class we did an example of this with `Polygon` and its subclasses.
+
+## A Silly Animal Kingdom
+This is not a biology class. 
+It is not biologically accurate (for instance we pretend all birds can fly), but the interesting bit is the inheritance.
+
+We have the `interface Animal`, containing only the method `yell`.
+`Bird` implements `Animal`, and `Eagle` and `HummingBird`. 
+`Bird` adds the methods fly (which is abstract) and peck (which is concrete).
+This means that `Eagle` and `HummingBird` must each implement `yell` and `fly`.
+Because `Eagal`s are awesome, and Red-tailed Hawks have the best sound, we will have a *totally awesome* biologically inaccuracy where `Eagal.yell` make Red-tailed Hawk noises.
+
+Each fish has a list of `Fin`s.
+`JellyFish` has no `Fin`s so that list is empty.
+Sharks do have `Fin`s, so that list is non-empty.
+
+![AnimalDiagram.png "Summary of the Silly Animal Kingdom"]
+
 # Encapsulation
 Encapsulation allows us to keep separate concerns separate.
 That's the definition.
@@ -79,7 +130,7 @@ Student s1 = t1;
 ```
 I've only included casts where necessary.
 
-# Task 5
+# Task 3
 The starter code is [here](https://github.com/arewhyaeenn/OOP_PILLARS_1/blob/master/point.zip).
 Please read comments as you modify it.
 This section is rather terse, see the lecture or links.
@@ -88,3 +139,15 @@ We will be using points in Cartesian and [polar form](https://mathworld.wolfram.
 Keep in mind that we are using radians and the java method [atan2(y,x)](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#atan2-double-double-).
 If we used the normal [atan(theta)](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#atan-double-), we would get a result in the first quadrant whenever we wanted one in the third.
 Note that the getters and setters here are nontrivial; we perform a change of coordinate systems in them.
+
+# Task 5
+If you've been running on Cloud9, you will need to set up java locally.
+Take a look at tasks 1 and 5 of (this README)[https://github.com/arewhyaeenn/OOP_HELLO_WORLD].
+You should probably have already done this in class.
+
+# Enums
+
+Enum are really useful.
+They allow us to give names to finite lists of possibilities.
+We have a `PRIMARY_COLOR` enum.
+They cannot contain any extra data.
