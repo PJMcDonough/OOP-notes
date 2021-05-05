@@ -177,6 +177,13 @@ After that, we need to call `revalidate` and `repaint`.
 Go ahead and make a bunch of buttons. 
 To complete task 5, you only need to have 4 different buttons in a grid.
 
+### Minesweeper
+We can have a menu bar, which is built out of components including JMenuBar. 
+We can convert a method into a callable object using the syntax `this::methodname`.
+We also have `class BoardButton`.
+We also have `class BoardManger`, which also interacts with `class StatusBar` at the bottom.
+It's probably a good idea to read the code.
+
 # Enums
 
 Enum are really useful.
