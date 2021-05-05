@@ -141,10 +141,41 @@ Keep in mind that we are using radians and the java method [atan2(y,x)](https://
 If we used the normal [atan(theta)](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#atan-double-), we would get a result in the first quadrant whenever we wanted one in the third.
 Note that the getters and setters here are nontrivial; we perform a change of coordinate systems in them.
 
-# Task 5
+# Task 5 GUIs
 If you've been running on Cloud9, you will need to set up java locally.
 Take a look at tasks 1 and 5 of (this README)[https://github.com/arewhyaeenn/OOP_HELLO_WORLD].
 You should probably have already done this in class.
+
+For projects, you can google for Swing objects.
+Exploration is the name of the game here.
+Project proposals will be accepted starting May 5.
+
+## Examples
+There will be repeated code between examples.
+Think of this like a series of drafts.
+
+### ButtonDemo1
+We can create things in Swing in the normal way, but it is important to note that things start out invisible, and we must call `.setVisible(true)`.
+We can extend `JOptionsPane` to make custom windows.
+The default look of things in Swing varies by platform, but we can override these defaults to make things look the same on every platform.
+
+We can extend `JButton`, to make a button with a particular behavior.
+In the constructor, we call `super(text)`, and call a bunch of methods on our new instance.
+We also add a method `onClick`, which we can use in a the lambda expression `event -> Onclick`.
+### GridDemo
+We do several things which are quite similar to ButtonDemo1, but we use the `gridLayout`, and make four separate buttons.
+If we want buttons to be able to be able to take an action similar to clicking each other, then we can create `abstract class Clickable`.
+We can have the buttons we want to be able to pragmatically click extend `Clickable`
+
+### EnumDemo
+We can have a `MoodButton` which cycles between three moods when its clicked on.
+This is based on an enum, and is not all that different from how a tick-tack-toe button would work.
+We need to call `.setOpaque(true)` to make it so we can actually see the button.
+After that, we need to call `revalidate` and `repaint`.
+
+### A bunch of buttons
+Go ahead and make a bunch of buttons. 
+To complete task 5, you only need to have 4 different buttons in a grid.
 
 # Enums
 
