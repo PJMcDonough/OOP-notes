@@ -13,6 +13,8 @@ Function overloading is also seen as a form of polymorphism in the OOP paradigm.
 Polymorphism lets us deal with multiple different things similarly.
 Take for example the Cartesian and polar implementations of `Point`.
 # Inheritance
+In inheritance we inherit code written in other classes.
+
 The general idea of inheritance is that we use some behavior of another class, while adding some of our own.
 
 We have covered how some of this works to some extent and will cover it further in the future.
@@ -68,12 +70,16 @@ In the diagram, interfaces are blue, abstract classes are green, and concrete cl
 ![See above prose](AnimalDiagram.png "Summary of the Silly Animal Kingdom")
 
 # Encapsulation
+We separate how data is stored from how it is used.
+
 Encapsulation allows us to keep separate concerns separate.
 That's the definition.
 Abstractions like `interface`s can make things better encapsulated.
 `Point` and `Polygon` define how the client can interact with variables of those types.
 We encapsulate the implementation.
 # Abstraction
+We hide implementation details.
+
 The `Point` and `Polygon` `interface`s give us nice abstractions.
 The Cartesian and polar implementations of Point, and classes like`Rectangle` provide the implementation.
 ## Declaring and implementing `interface`s
